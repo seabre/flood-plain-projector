@@ -1,11 +1,16 @@
 var map;
+var elevator;
 var hatchery_infowindow;
 
+var elevations = {};
+
 function initialize() {
+  elevator = new google.maps.ElevationService();
   hatchery_infowindow = new google.maps.InfoWindow();
   var mapOptions = {
     zoom: 9
   };
+
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
 
@@ -67,15 +72,38 @@ function callback(results, status) {
 }
 
 function createMarker(place) {
+  var locations = [];
   var placeLoc = place.geometry.location;
+  locations.push(placeLoc);
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location
   });
+  var positionalRequest = {
+    'locations': locations
+  };
+
+   // Initiate the location request
+
 
   google.maps.event.addListener(marker, 'click', function() {
-    hatchery_infowindow.setContent(place.name);
-    hatchery_infowindow.open(map, this);
+    loc = this;
+    elevator.getElevationForLocations(positionalRequest, function(results, status) {
+      if (status == google.maps.ElevationStatus.OK) {
+
+        // Retrieve the first result
+        if (results[0]) {
+          // Open an info window indicating the elevation at the clicked position
+          hatchery_infowindow.setContent('Location: ' + place.name + '<br>Elevation: ' + results[0].elevation + 'm');
+          hatchery_infowindow.open(map, loc);
+          console.log(results[0]);
+        } else {
+          alert('No results found');
+        }
+      } else {
+        alert('Elevation service failed due to: ' + status);
+      }
+    });
   });
 }
 
