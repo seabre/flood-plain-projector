@@ -13,12 +13,12 @@
 
     <%= stylesheet_link_tag "all" %>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-    <%= javascript_include_tag  "all" %>
 
   </head>
 
   <body class="<%= page_classes %>">
     <%= yield %>
+    <%= javascript_include_tag  "all" %>
   </body>
 </html>
 
