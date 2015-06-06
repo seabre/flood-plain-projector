@@ -110,14 +110,15 @@ function createMarker(place) {
         if (results[0]) {
           var currYear = new Date().getFullYear();
           // Open an info window indicating the elevation at the clicked position
-          hatchery_infowindow.setContent('Location: '
+          hatchery_infowindow.setContent('<h5>'
             + place.name
-            + '<br>Elevation: '
+            + '</h5>'
+            + '<br><strong>Elevation:</strong> '
             + round_results(results[0].elevation)
             + 'm'
-            + '<br>'
+            + '<br><strong>'
             + projectionDate
-            + ' Year Projection: '
+            + ' Year Projection:</strong> '
             + round_results(results[0].elevation - sea_level_rise_starting_at(currYear, currYear + projectionDate, INTERMEDIATE_HIGH))
             + 'm');
           hatchery_infowindow.open(map, loc);
