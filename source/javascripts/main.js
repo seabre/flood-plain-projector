@@ -47,11 +47,6 @@ function initialize() {
         query: "fish hatcheries"
       };
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'You are here.'
-      });
 
       var service = new google.maps.places.PlacesService(map);
       service.textSearch(request, callback);
@@ -80,7 +75,6 @@ function handleNoGeolocation(errorFlag) {
     content: content
   };
 
-  var infowindow = new google.maps.InfoWindow(options);
   map.setCenter(options.position);
 }
 
