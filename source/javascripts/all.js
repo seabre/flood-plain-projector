@@ -1,2 +1,2 @@
-//= projection-date
-//= main
+//= require projection-date
+//= require main

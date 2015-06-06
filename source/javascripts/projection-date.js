@@ -2,7 +2,7 @@ var projectionDate;
 
 var pdButtons = document.getElementsByClassName("projection-date");
 
-for (i=0,i < pdButtons.length;, i++) {
+for (i=0; i < pdButtons.length; i++) {
     pdButtons[i].addEventListener("click", setProjectionDate, false);
 };
 
