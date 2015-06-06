@@ -4,6 +4,25 @@ var hatchery_infowindow;
 
 var elevations = {};
 
+/* http://scenarios.globalchange.gov/sites/default/files/NOAA_SLR_r3_0.pdf
+ * E(t) = 0.0017 * t + bt^2
+ * Where t represents years (starting in 1992)
+ * b is a constant representing SLR scenarios
+ * */
+var HIGHEST = 0.000156;
+var INTERMEDIATE_HIGH = 0.0000871;
+var INTERMEDIATE_LOW = 0.0000271;
+
+function sea_level_rise(year, model) {
+  var t = (year - 1992);
+  return 0.0017 * t + model * (Math.pow(t,2));
+}
+
+/* We want to start from a particular year and show change from the year you are currently in.*/
+function sea_level_rise_starting_at(start_y, desired_y, model) {
+  return sea_level_rise(desired_y, model) - sea_level_rise(start_y, model);
+}
+
 function initialize() {
   elevator = new google.maps.ElevationService();
   hatchery_infowindow = new google.maps.InfoWindow();
@@ -94,9 +113,18 @@ function createMarker(place) {
         // Retrieve the first result
         if (results[0]) {
           // Open an info window indicating the elevation at the clicked position
-          hatchery_infowindow.setContent('Location: ' + place.name + '<br>Elevation: ' + results[0].elevation + 'm');
+          hatchery_infowindow.setContent('Location: '
+            + place.name
+            + '<br>Elevation: '
+            + results[0].elevation
+            + 'm'
+            + '<br>SLR Intermediate-Low: '
+            + (results[0].elevation - sea_level_rise_starting_at(2015, 2100, INTERMEDIATE_LOW))
+            + '<br>SLR Intermediate-High: '
+            + (results[0].elevation - sea_level_rise_starting_at(2015, 2100, INTERMEDIATE_HIGH))
+            + '<br>SLR Highest: '
+            + (results[0].elevation - sea_level_rise_starting_at(2015, 2100, HIGHEST)));
           hatchery_infowindow.open(map, loc);
-          console.log(results[0]);
         } else {
           alert('No results found');
         }
