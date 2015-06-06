@@ -2,8 +2,6 @@ var map;
 var elevator;
 var hatchery_infowindow;
 
-var elevations = {};
-
 /* http://scenarios.globalchange.gov/sites/default/files/NOAA_SLR_r3_0.pdf
  * E(t) = 0.0017 * t + bt^2
  * Where t represents years (starting in 1992)
