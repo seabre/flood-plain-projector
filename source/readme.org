@@ -1,0 +1,12 @@
+#+TITLE: README for Fisheries Floodplane Previewer
+* What's this?
+  Team /sea-level/ at the Tennessee Aquarium is working on designing a
+  tool which fishers can us to quickly ascertain the sea level rise,
+  storm surge and flooding risks in their surrounding area. We chose
+  this challenge from the list that most aligned with regional goals
+  and the control of invasive species.
+* How to Install
+  - First, clone the repo.
+  - Second, /change directories/ to the cloned repo and run *bundle install*
+    Note: You will need to have the *ruby* /gem/ *bundler* installed.
+  - Lastly, execute /middleman server/
