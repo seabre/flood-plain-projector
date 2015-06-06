@@ -1,4 +1,4 @@
-var projectionDate;
+var projectionDate = 1;
 
 var pdButtons = document.getElementsByClassName("projection-date");
 

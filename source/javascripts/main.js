@@ -2,6 +2,10 @@ var map;
 var elevator;
 var hatchery_infowindow;
 
+function round_results(num) {
+  return Math.round(num * 100) / 100;
+}
+
 /* http://scenarios.globalchange.gov/sites/default/files/NOAA_SLR_r3_0.pdf
  * E(t) = 0.0017 * t + bt^2
  * Where t represents years (starting in 1992)
@@ -110,18 +114,18 @@ function createMarker(place) {
 
         // Retrieve the first result
         if (results[0]) {
+          var currYear = new Date().getFullYear();
           // Open an info window indicating the elevation at the clicked position
           hatchery_infowindow.setContent('Location: '
             + place.name
             + '<br>Elevation: '
-            + results[0].elevation
+            + round_results(results[0].elevation)
             + 'm'
-            + '<br>SLR Intermediate-Low: '
-            + (results[0].elevation - sea_level_rise_starting_at(2015, 2100, INTERMEDIATE_LOW))
-            + '<br>SLR Intermediate-High: '
-            + (results[0].elevation - sea_level_rise_starting_at(2015, 2100, INTERMEDIATE_HIGH))
-            + '<br>SLR Highest: '
-            + (results[0].elevation - sea_level_rise_starting_at(2015, 2100, HIGHEST)));
+            + '<br>'
+            + projectionDate
+            + ' Year Projection: '
+            + round_results(results[0].elevation - sea_level_rise_starting_at(currYear, currYear + projectionDate, INTERMEDIATE_HIGH))
+            + 'm');
           hatchery_infowindow.open(map, loc);
         } else {
           alert('No results found');
