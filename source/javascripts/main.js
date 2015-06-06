@@ -43,8 +43,8 @@ function initialize() {
 
       var request = {
         location: pos,
-        radius: 16090.34,
-        query: "fish hatcheries"
+        radius: 160900.34,
+        query: "fish hatcheries near Nearby"
       };
 
 
