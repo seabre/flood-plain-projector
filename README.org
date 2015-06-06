@@ -1,4 +1,4 @@
-#+TITLE: README for Fisheries Floodplane Previewer
+#+TITLE: README for Fisheries Floodplain Projector
 * What's this?
   Team /sea-level/ at the Tennessee Aquarium is working on designing a
   tool which fishers can us to quickly ascertain the sea level rise,
