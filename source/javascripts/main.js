@@ -29,7 +29,8 @@ function initialize() {
   elevator = new google.maps.ElevationService();
   hatchery_infowindow = new google.maps.InfoWindow();
   var mapOptions = {
-    zoom: 9
+      zoom: 9,
+      mapTypeId: google.maps.MapTypeId.SATELLITE
   };
 
   map = new google.maps.Map(document.getElementById('map'),
