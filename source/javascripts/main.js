@@ -2,6 +2,39 @@ var map;
 var elevator;
 var hatchery_infowindow;
 
+function fetch_tile(base_url, coord, zoom) {
+  return base_url + zoom + "/" + coord.x + "/" + coord.y + ".png";
+}
+function flood_fetch_tile(coord, zoom) {
+  return fetch_tile("http://45.79.205.71/flood/", coord, zoom);
+}
+
+function osm_fetch_tile(coord, zoom) {
+  return fetch_tile("http://a.tile.stamen.com/toner/", coord, zoom);
+}
+
+var mapTypeIds = [];
+for(var type in google.maps.MapTypeId) {
+  mapTypeIds.push(google.maps.MapTypeId[type]);
+}
+
+mapTypeIds.push("OSM");
+
+osm_options = {
+  getTileUrl: osm_fetch_tile,
+  tileSize: new google.maps.Size(256, 256),
+  maxZoom: 18,
+  isPng: true
+}
+
+flood_options = {
+  getTileUrl: flood_fetch_tile,
+  tileSize: new google.maps.Size(256, 256),
+  isPng: true
+}
+
+flood = new google.maps.ImageMapType(flood_options);
+
 function round_results(num) {
   return Math.round(num * 100) / 100;
 }
@@ -30,11 +63,18 @@ function initialize() {
   hatchery_infowindow = new google.maps.InfoWindow();
   var mapOptions = {
       zoom: 9,
-      mapTypeId: google.maps.MapTypeId.SATELLITE
+      mapTypeId: "OSM",
+      mapTypeControlOptions: {
+        mapTypeIds: mapTypeIds
+      }
   };
 
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
+
+  map.mapTypes.set("OSM", new google.maps.ImageMapType(osm_options));
+
+  map.overlayMapTypes.push(flood);
 
   // Try HTML5 geolocation
   if(navigator.geolocation) {
