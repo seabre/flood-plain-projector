@@ -6,7 +6,7 @@ function fetch_tile(base_url, coord, zoom) {
   return base_url + zoom + "/" + coord.x + "/" + coord.y + ".png";
 }
 function flood_fetch_tile(coord, zoom) {
-  return fetch_tile("http://45.79.205.71/flood/", coord, zoom);
+  return fetch_tile("http://floodmap.floodplainprojector.com/flood/", coord, zoom);
 }
 
 function osm_fetch_tile(coord, zoom) {
