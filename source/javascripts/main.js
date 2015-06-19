@@ -65,13 +65,19 @@ function initialize() {
       zoom: 9,
       mapTypeId: "OSM",
       mapTypeControlOptions: {
-        mapTypeIds: mapTypeIds
+        mapTypeIds: mapTypeIds,
+        position: google.maps.ControlPosition.RIGHT_BOTTOM
+      },
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_TOP
       }
   };
 
   map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
 
+  map.controls[google.maps.ControlPosition.RIGHT_TOP].push(
+        document.getElementById('legend'));
   map.mapTypes.set("OSM", new google.maps.ImageMapType(osm_options));
 
   map.overlayMapTypes.push(flood);

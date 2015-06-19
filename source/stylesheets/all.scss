@@ -1,6 +1,7 @@
 @import "variables";
 @import "bootstrap-sprockets";
-@import "bootstrap";
+@import "vendor/bootstrap";
+@import "font-awesome";
 
 html, body, .container-fluid, .row, .map { height: 100% }
 
@@ -31,3 +32,66 @@ h1,h2,h3,h4,h5,h6 {
 h3 {
   margin-bottom: 0.7em;
 }
+
+#legend {
+  background: $gray-light;
+  padding: 10px;
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+    font-size: $font-size-base;
+
+    .whitesquare {
+      color: white;
+    }
+
+    #x {
+      color: $x-fill;
+    }
+
+    #np {
+      color: $np-fill;
+    }
+
+    #ae {
+      color: $ae-fill;
+    }
+
+    #d {
+      color: $d-fill;
+    }
+
+    #ao {
+      color: $ao-fill;
+    }
+
+    #v {
+      color: $v-fill;
+    }
+
+    #a {
+      color: $a-fill;
+    }
+
+    #ah {
+      color: $ah-fill;
+    }
+
+    #a99 {
+      color: $a99-fill;
+    }
+
+    #ve {
+      color: $ve-fill;
+    }
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+}
+

@@ -32,11 +32,23 @@ $body-bg:               #6a3d9a;
 $text-color:            white !default;
 
 //** Global textual link color.
-$link-color:            $brand-primary !default;
+$link-color:            white !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-color:      darken(white, 15%) !default;
 //** Link hover decoration.
 $link-hover-decoration: underline !default;
+
+// Legend colors
+$x-fill: #a6cee3;
+$np-fill: #1f78b4;
+$ae-fill: #b2df8a;
+$d-fill: #33a02c;
+$ao-fill: #fb9a99;
+$v-fill: #e31a1c;
+$a-fill: #fdbf6f;
+$ah-fill: #ff7f00;
+$a99-fill: #cab2d6;
+$ve-fill: #6a3d9a;
 
 
 //== Typography
