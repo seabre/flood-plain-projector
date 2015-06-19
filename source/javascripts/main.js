@@ -154,7 +154,7 @@ function createMarker(place) {
           hatchery_infowindow.setContent('<div class="loc_marker"><h5>'
             + place.name
             + '</h5>'
-            + '<br><strong>Elevation:</strong> '
+            + '<strong>Elevation:</strong> '
             + round_results(results[0].elevation)
             + 'm'
             + '<br><strong>'

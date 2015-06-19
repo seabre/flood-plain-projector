@@ -3,31 +3,24 @@ title: Flood Plain Projector
 ---
 <div class='container-fluid'>
   <div class='row'>
-    <div class="col-md-10 map">
-      <div class="google-map-canvas" id="map"></div>
-    </div>
-    <div class="col-md-2">
-      <div class='row'>
-        <div class='col-md-12'>
-          <h3>Flood Plain Projector</h3>
-        </div>
-      </div>
-      <div class='row' id='year_buttons'>
-        <div class='col-md-12'>
-          <div class="btn-group-vertical btn-group-block col-md-12" role="group" aria-label="Projection Data">
-            <button type="button" class="btn projection-date btn-default" data-value="5">+05Y</button>
-            <button type="button" class="btn projection-date btn-default" data-value="10">+10Y</button>
-            <button type="button" class="btn projection-date btn-default" data-value="15">+15Y</button>
-            <button type="button" class="btn projection-date btn-default" data-value="30">+30Y</button>
-          </div>
-        </div>
-      </div>
+    <div class="col-md-3">
+      <h2 id="title">Flood Plain Projector</h2>
       <div class='row'>
         <div class='col-md-12'>
           <p>Use Flood Plain Projector to figure out if your fishery is in a location that is susceptible to flooding.</p>
           <p>Choose the number of years from the current year to project. You will be shown the height above sea level for the chosen number of years.</p>
         </div>
       </div>
+      <h3>Fishery Sea Level</h3>
+          <div class="btn-group-vertical btn-group-block col-md-12" role="group" aria-label="Projection Data">
+            <button type="button" class="btn projection-date btn-default" data-value="5">At 5 Years</button>
+            <button type="button" class="btn projection-date btn-default" data-value="10">At 10 Years</button>
+            <button type="button" class="btn projection-date btn-default" data-value="15">At 15 Years</button>
+            <button type="button" class="btn projection-date btn-default" data-value="30">At 30 Years</button>
+          </div>
+    </div>
+    <div class="col-md-9 map">
+      <div class="google-map-canvas" id="map"></div>
     </div>
   </div>
 </div>
