@@ -1,3 +1,6 @@
+var locations = [];
+var location_coords = [];
+var markers = [];
 var map;
 var elevator;
 var hatchery_infowindow;
@@ -67,7 +70,7 @@ function initialize() {
       mapTypeId: "OSM",
       mapTypeControlOptions: {
         mapTypeIds: mapTypeIds,
-        position: google.maps.ControlPosition.RIGHT_BOTTOM
+        position: google.maps.ControlPosition.LEFT_BOTTOM
       },
       zoomControlOptions: {
         position: google.maps.ControlPosition.LEFT_TOP
@@ -98,6 +101,7 @@ function initialize() {
 
       var service = new google.maps.places.PlacesService(map);
       service.textSearch(request, callback);
+
 
       map.setCenter(pos);
 
@@ -131,17 +135,30 @@ function callback(results, status) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
     }
+
+    var pointArray = new google.maps.MVCArray(location_coords);
+
+    heatmap = new google.maps.visualization.HeatmapLayer({
+      data: pointArray,
+      radius: 100
+    });
+
+    console.log(map);
+    heatmap.setMap(map);
   }
 }
 
 function createMarker(place) {
-  var locations = [];
   var placeLoc = place.geometry.location;
   locations.push(placeLoc);
+  location_coords.push(placeLoc);
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    position: placeLoc
   });
+
+  markers.push(marker);
+
   var positionalRequest = {
     'locations': locations
   };

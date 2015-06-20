@@ -8,16 +8,22 @@ title: Flood Plain Projector
       <div class='row'>
         <div class='col-md-12'>
           <p>Use Flood Plain Projector to figure out if your fishery is in a location that is susceptible to flooding.</p>
-          <p>Choose the number of years from the current year to project. You will be shown the height above sea level for the chosen number of years.</p>
         </div>
       </div>
-      <h3>Fishery Sea Level</h3>
-          <div class="btn-group-vertical btn-group-block col-md-12" role="group" aria-label="Projection Data">
-            <button type="button" class="btn projection-date btn-default" data-value="5">At 5 Years</button>
-            <button type="button" class="btn projection-date btn-default" data-value="10">At 10 Years</button>
-            <button type="button" class="btn projection-date btn-default" data-value="15">At 15 Years</button>
-            <button type="button" class="btn projection-date btn-default" data-value="30">At 30 Years</button>
-          </div>
+      <h3 id="fishery_sea_level">Fishery Sea Level</h3>
+        <p>Choose the number of years from the current year to project. You will be shown the height above sea level for the chosen number of years.</p>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Projection Data">
+          <button type="button" class="btn projection-date btn-default" data-value="5">At 5 Years</button>
+          <button type="button" class="btn projection-date btn-default" data-value="10">At 10 Years</button>
+          <button type="button" class="btn projection-date btn-default" data-value="15">At 15 Years</button>
+          <button type="button" class="btn projection-date btn-default" data-value="30">At 30 Years</button>
+        </div>
+      <h3 id="fishery_density">Fishery Density</h3>
+      <p>It can be useful to see the concentration of fisheries within an area. Click the checkbox to turn on the fishery density layer.</p>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Fishery Density">
+        <button type="button" class="btn btn-default" id="toggle_density">Toggle Density Layer</button>
+        <button type="button" class="btn btn-default" id="toggle_markers">Toggle Markers</button>
+      </div>
     </div>
     <div class="col-md-9 map">
       <div class="google-map-canvas" id="map"></div>
