@@ -9,10 +9,20 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', sans-serif;
 }
 
-//.container-full {
-//  margin: 0 auto;
-//  width: 100%;
-//}
+#projector_panel {
+  p {
+    @media (max-width: $screen-md-min) {
+      font-size: $font-size-large;
+    }
+  }
+
+  .btn {
+    @media (max-width: $screen-md-min) {
+      font-size: $font-size-base;
+    }
+
+  }
+}
 
 #map {
   width: 100%;
@@ -37,9 +47,20 @@ h1,h2,h3,h4,h5,h6 {
   margin-bottom: 0.7em;
 }
 
+#fishery_density_group {
+  @media (max-width: $screen-md-min) {
+    padding-bottom: 1.7em;
+  }
+}
+
 #legend {
   background: $gray-light;
   padding: 10px;
+
+  @media (max-width: $screen-sm-min) {
+    width: 20%;
+    height: 45%;
+  }
 
   ul {
     list-style-type: none;
@@ -47,6 +68,10 @@ h1,h2,h3,h4,h5,h6 {
 
   li {
     font-size: $font-size-base;
+
+    @media (max-width: $screen-sm-min) {
+      font-size: $font-size-small;
+    }
 
     .whitesquare {
       color: white;
