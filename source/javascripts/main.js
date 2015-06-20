@@ -62,6 +62,7 @@ function initialize() {
   elevator = new google.maps.ElevationService();
   hatchery_infowindow = new google.maps.InfoWindow();
   var mapOptions = {
+      minZoom: 9,
       zoom: 9,
       mapTypeId: "OSM",
       mapTypeControlOptions: {
