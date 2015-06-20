@@ -27,7 +27,8 @@ osm_options = {
   getTileUrl: osm_fetch_tile,
   tileSize: new google.maps.Size(256, 256),
   maxZoom: 18,
-  isPng: true
+  isPng: true,
+  name: "Toner"
 }
 
 flood_options = {
