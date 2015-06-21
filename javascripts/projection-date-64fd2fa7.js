@@ -1,0 +1,1 @@
+function setProjectionDate(){projectionDate=parseInt(this.dataset.value)}for(var projectionDate=1,pdButtons=document.getElementsByClassName("projection-date"),i=0;i<pdButtons.length;i++)pdButtons[i].addEventListener("click",setProjectionDate,!1);
